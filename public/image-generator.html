@@ -29,7 +29,7 @@
         <div id="loading" style="display:none;">Cargando...</div>
         <div id="result">
             <h2>Imagen Generada:</h2>
-            <img id="generatedImage" src="" alt="Imagen generada" style="display:none;">
+<!--            <img id="generatedImage" src="" alt="Imagen generada" style="display:none;">-->
         </div>
     </main>
 
@@ -61,16 +61,25 @@
             event.preventDefault();
 
             const description = document.getElementById('description').value;
+
+            const newImage = document.createElement('img');
+            newImage.id = 'generatedImage';
+            newImage.alt = description;
+
             document.getElementById('loading').style.display = 'block';
-            document.getElementById('generatedImage').style.display = 'none';
+
+            newImage.style.display = 'none';
 
             try {
                 const data = await generateImage(description);
 
                 if (data.status === "COMPLETED") {
                     const imageUrl = data.data[0].asset_url;
-                    document.getElementById('generatedImage').src = imageUrl;
-                    document.getElementById('generatedImage').style.display = 'block';
+
+
+                    newImage.src = imageUrl;
+                    newImage.style.display = 'block';
+                    document.getElementById('result').appendChild(newImage);
                 } else {
                     alert('Error al generar la imagen: ' + data.status);
                 }

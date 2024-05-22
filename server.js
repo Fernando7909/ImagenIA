@@ -1,12 +1,7 @@
-// const express = require('express');
 import express from 'express';
-// const fetch = require('node-fetch');
 import fetch from 'node-fetch';
-// const multer = require('multer');
 import multer from 'multer';
-// const fs = require('fs');
 import fs from 'fs';
-// const path = require('path');
 import path from 'path';
 const __dirname = path.resolve(path.dirname(''));
 
@@ -36,7 +31,7 @@ app.post('/api/image/generation', async (req, res) => {
                 'Content-Type': 'application/json',
                 'X-Api-Version': 'v1',
                 'Accept': 'application/json',
-                'Authorization': 'Bearer lmwr_sk_KhXLnRmhb6_lmtqJ95s3rmCgILnolL2Zh0ckuz6yDJzYC8ED'
+                'Authorization': 'Bearer lmwr_sk_ex7EqKf84T_L6LMZzUEMkRfQJnY1GsOQfDUkcYJn1ScVaimT'
             },
             body: JSON.stringify(req.body)
         });
