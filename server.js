@@ -31,7 +31,7 @@ app.post('/api/image/generation', async (req, res) => {
                 'Content-Type': 'application/json',
                 'X-Api-Version': 'v1',
                 'Accept': 'application/json',
-                'Authorization': 'Bearer lmwr_sk_ex7EqKf84T_L6LMZzUEMkRfQJnY1GsOQfDUkcYJn1ScVaimT'
+                'Authorization': 'Bearer lmwr_sk_42kQtwXHDU_K3VaXo5GptQp6eYKNWEfubYDpnoNm69iu3qxb'
             },
             body: JSON.stringify(req.body)
         });
