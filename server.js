@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from 'express';
 import fetch from 'node-fetch';
 import multer from 'multer';
@@ -31,7 +32,7 @@ app.post('/api/image/generation', async (req, res) => {
                 'Content-Type': 'application/json',
                 'X-Api-Version': 'v1',
                 'Accept': 'application/json',
-                'Authorization': 'Bearer lmwr_sk_42kQtwXHDU_K3VaXo5GptQp6eYKNWEfubYDpnoNm69iu3qxb'
+                'Authorization': `Bearer ${process.env.LIMEWIRE_API_TOKEN}`
             },
             body: JSON.stringify(req.body)
         });
