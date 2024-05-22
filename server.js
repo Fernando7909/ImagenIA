@@ -1,8 +1,13 @@
-const express = require('express');
-const fetch = require('node-fetch');
-const multer = require('multer');
-const fs = require('fs');
-const path = require('path');
+// const express = require('express');
+import express from 'express';
+// const fetch = require('node-fetch');
+import fetch from 'node-fetch';
+// const multer = require('multer');
+import multer from 'multer';
+// const fs = require('fs');
+import fs from 'fs';
+// const path = require('path');
+import path from 'path';
 
 const app = express();
 const port = 3000;
@@ -75,8 +80,12 @@ app.post('/upscale', upload.single('image'), async (req, res) => {
 });
 
 // Ruta para la página principal
-app.get('/', (req, res) => {
+app.get('/escalar', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'escalar-imagen.html'));
+});
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'image-generator.html'));
 });
 
 app.listen(port, () => {
