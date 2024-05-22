@@ -1,0 +1,367 @@
+/* Reset básico para asegurar consistencia entre navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables de colores y fuentes */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #495057;
+    --background-color: #f8f9fa;
+    --text-color: #343a40;
+    --border-radius: 10px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos generales del body */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 0;
+    line-height: 1.6;
+}
+
+header {
+    width: 100%;
+    background-color: var(--text-color);
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 5px 10px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #adb5bd;
+    background-color: #495057;
+    border-radius: 5px;
+}
+
+main {
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+form {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 20px;
+    transition: box-shadow 0.3s ease;
+}
+
+form:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+form label {
+    font-size: 1em;
+    margin-bottom: 10px;
+    display: block;
+    color: var(--secondary-color);
+}
+
+form input[type="file"], form select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input[type="file"]:focus, form select:focus {
+    border-color: var(--text-color);
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 58, 64, 0.5);
+}
+
+form button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+form button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+#loading {
+    font-size: 1.2em;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+#result {
+    text-align: center;
+}
+
+#result h2 {
+    font-size: 1.5em;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+#result img {
+    max-width: 100%;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+#result img:hover {
+    transform: scale(1.05);
+}
+
+footer {
+    width: 100%;
+    background-color: var(--text-color);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Estilos adicionales para servicios */
+.services {
+    margin: 40px 0;
+}
+
+.services h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+.services .service-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.services .service {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    width: 30%;
+    margin-bottom: 20px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    text-align: left;
+}
+
+.services .service:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+.services .service img {
+    max-width: 50px;
+    margin-bottom: 10px;
+}
+
+.services .service h3 {
+    font-size: 1.5em;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.services .service p {
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.services .service a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.services .service a:hover {
+    color: #0056b3;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    body {
+        padding: 20px 10px;
+    }
+
+    main {
+        max-width: 90%;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    #result h2 {
+        font-size: 1.2em;
+    }
+
+    .services .service {
+        width: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    form {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    #result h2 {
+        font-size: 1em;
+    }
+
+    form label, form input[type="file"], form select, form button {
+        font-size: 0.9em;
+    }
+
+    .services .service {
+        width: 100%;
+    }
+}
+
+/* Tipografía y colores adicionales */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+button, input {
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+button:hover, input:focus {
+    outline: none;
+}
+
+/* Animaciones adicionales */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Estilos adicionales para la carga y visualización de imágenes */
+.upload-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.upload-section input[type="file"] {
+    margin-bottom: 15px;
+}
+
+.upload-section select {
+    margin-bottom: 20px;
+}
+
+.upload-section button {
+    width: auto;
+    padding: 10px 20px;
+}
+
+/* Estilos adicionales para botones */
+.button-primary {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.button-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button-secondary:hover {
+    background-color: #343a40;
+    transform: translateY(-2px);
+}

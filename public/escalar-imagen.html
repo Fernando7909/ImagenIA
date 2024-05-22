@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escalar Imagen</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Escalar Imagen</a></li>
+                <li><a href="#">Sobre Nosotros</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Escalar Imagen</h1>
+        <form id="uploadForm">
+            <label for="imageUpload">Sube una imagen:</label>
+            <input type="file" id="imageUpload" name="image" accept="image/*" required>
+            <label for="scaleFactor">Factor de escalado:</label>
+            <select id="scaleFactor" name="scaleFactor" required>
+                <option value="2">2x</option>
+                <option value="3">3x</option>
+                <option value="4">4x</option>
+            </select>
+            <button type="submit">Enviar</button>
+        </form>
+        <div id="loading" style="display:none;">Cargando...</div>
+        <div id="result">
+            <h2>Imagen Escalada:</h2>
+            <img id="scaledImage" src="" alt="Imagen escalada" style="display:none;">
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Escalar Imagen. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const fileInput = document.getElementById('imageUpload');
+            const scaleFactor = document.getElementById('scaleFactor').value;
+            const loading = document.getElementById('loading');
+            const scaledImage = document.getElementById('scaledImage');
+            loading.style.display = 'block';
+            scaledImage.style.display = 'none';
+
+            const formData = new FormData();
+            formData.append('image', fileInput.files[0]);
+            formData.append('upscale_factor', scaleFactor);
+
+            try {
+                const response = await fetch('/upscale', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Error: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                const imageUrl = data.url; // Suponiendo que la API devuelve la URL de la imagen escalada
+
+                scaledImage.src = imageUrl;
+                scaledImage.style.display = 'block';
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Ocurrió un error al escalar la imagen.');
+            } finally {
+                loading.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
