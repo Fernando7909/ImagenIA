@@ -8,6 +8,7 @@ import multer from 'multer';
 import fs from 'fs';
 // const path = require('path');
 import path from 'path';
+const __dirname = path.resolve(path.dirname(''));
 
 const app = express();
 const port = 3000;
